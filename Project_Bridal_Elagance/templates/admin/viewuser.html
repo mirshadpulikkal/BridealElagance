@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e0e0;
+            background-image:url(img/brushes-with-particles-pink-powder.jpg) ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+    
+        }
+
+        .login-container {
+            background-color: #080808cc;
+            padding: 50px 40px ;
+            border-radius: 10px;
+            box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.723);
+            width: 400px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #f0e9e9;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #e3d4dff4;
+            background-color: #efe6ef;
+            box-shadow: 0 0 5px rgba(211, 205, 211, 0.2);
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            padding: 0 5px;
+            background-color: #fff;
+            color: #999;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:valid + label {
+            top: -3px;
+            font-size: 12px;
+            color: #95227a;
+        }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #050505;
+            font-size: 22px;
+        }
+
+
+
+        .login-container {
+            margin-top: 20px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form">
+            <h2>View User</h2>
+            {% for i in obj %}
+                <input type="text" id="username" name="username"  required value="{{ i.name }}">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="pass"  required  >
+                <label for="username">password</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="add"  required value="{{ i.address}}">
+                <label for="username">address</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="gender"  requiredvalue="{{ i.gender }}">
+                <label for="username">Gender</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="age"  required value="{{ i.age }}">
+                <label for="username">age</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" name="age"  required value="{{ i.experience }}">
+                <label for="username">Experiance</label>
+            </div>
+        
+            {% endfor %}
+
+  
+</body>
+</html>
