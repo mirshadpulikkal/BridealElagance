@@ -1,4 +1,5 @@
 from http.client import HTTPResponse
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from.models import*
@@ -7,17 +8,20 @@ from.models import*
 
 class Login(View):
     def get(self,request): 
-        return render (request,'admin/nex.html')
+        return render (request,'admin/login.html')
     def post(self,request):
         username=request.POST['username']
-        password=request.POST['passworld']
-        login_obj=LoginTable.object.get(username=username,passward=password)
-        if login_obj=="admin":
-            return HTTPResponse('''<script>alert("done");window.location="/"<script>''')
-
+        password=request.POST['password']
+        login_obj=LoginTable.objects.get(username=username,password=password)
+        if login_obj.Type=="admin":
+            return HttpResponse('''<script>alert("done");window.location="/adminhome"</script>''')
+class adminhome(View):
+    def get(self,request): 
+        return render (request,'admin/adminhome.html')
 class Artist(View):
     def get(self,request): 
-        return render (request,'admin/artist.html')
+        artist=ArtistTable.objects.all()
+        return render (request,'admin/artist.html',{'a':artist})
 class Payment(View):
     def get(self,request): 
         return render (request,'admin/payment.html')

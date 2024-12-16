@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Feedback </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
+    {% comment %} <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -116,16 +116,17 @@
         }
 
        
-    </style>
+    </style> {% endcomment %}
 </head>
+{% csrf_token %}
 <body>
-<a href="/artist">MANAGE ARTIST</a>
-<a href="/payment">VIEW USER</a>
-<a href="/booking">VIEW MODEL</a>
-<a href="/complaint">VIEW PAYMENT METHOD HISTORY</a>
-<a href="/feedback">VIEW BOOKING HISTORY</a>
-<a href="/">VIWE COMPLAINT AND POST REPLAY</a>
-<a href="/">VIEW FEEDBACK</a>
+<a href="/artist">MANAGE ARTIST</a><br>
+<a href="/payment">VIEW USER</a><br>
+<a href="/booking">VIEW MODEL</a><br>
+<a href="/complaint">VIEW PAYMENT METHOD HISTORY</a><br>
+<a href="/feedback">VIEW BOOKING HISTORY</a><br>
+<a href="/">VIWE COMPLAINT AND POST REPLAY</a><br>
+<a href="/">VIEW FEEDBACK</a><br>
 <a>ADD NOTIFICATION</a>
 </body>
 </html>

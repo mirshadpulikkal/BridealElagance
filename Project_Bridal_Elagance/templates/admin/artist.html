@@ -30,7 +30,7 @@
             padding: 50px 40px ;
             border-radius: 10px;
             box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.723);
-            width: 400px;
+            width: 800px;
         }
 
         .login-form h2 {
@@ -137,39 +137,32 @@
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form">
-            <h2>Artist</h2>
-
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Username</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Address</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Age</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Gender</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Contact no</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="username"  required>
-                <label for="username">Experience</label>
-            </div>
-
-        
-
-            <button type="submit" id="bu">Accept</button>
-            <button type="submit" id="b">Reject</button>
-        </form>
+       <table>
+        <tr>
+            <td>Username</td>
+            <td>Address </td>
+            <td>Age </td>
+            <td>Gender </td>
+            <td>Contact no </td>
+            <td>Experience </td>
+            <td>Verify</td>
+        </tr>
+        {% for i in a %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.contactno}}</td>
+            <td>{{i.experience}}</td>
+            <td>
+                <a href="#">Accept</a>
+                <a href="#">Reject</a>
+            </td>
+        </tr>
+         {% endfor %}
+       </table>
+           
     </div>
 
   
