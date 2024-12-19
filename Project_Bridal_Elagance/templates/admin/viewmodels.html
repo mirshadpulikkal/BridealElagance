@@ -19,19 +19,19 @@
             align-items: center;
             height: 100vh;
             background-color: #e0e0e0;
-            background-image:url(img/brushes-with-particles-pink-powder.jpg) ;
+            background-image:url(img/brushes-with-particles-pink-powder.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-    
         }
 
         .login-container {
-            background-color: #080808cc;
-            padding: 50px 40px ;
+            background-color: rgba(145, 140, 140, 0.8);
+            padding: 50px 40px;
             border-radius: 10px;
             box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.723);
-            width: 400px;
+            width: 900px;
+            overflow: hidden;
         }
 
         .login-form h2 {
@@ -89,49 +89,91 @@
             right: 15px;
             transform: translateY(-50%);
             cursor: pointer;
-            color: #050505;
+            color: rgb(181, 98, 98);
             font-size: 22px;
         }
 
+        #bu, #b {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: transparent;
+            border: 1px solid white;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
 
+        #bu:hover, #b:hover {
+            background-color: #2a790b8a;
+            border: none;
+        }
 
-        .login-container {
+        #b {
+            margin-top: 8px;
+            background-color: #950e1989;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
 
-        img{
-            width: 100px;
-            height: 100px;
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
         }
-       
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        td a:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form">
-            <h2>View models</h2>
-            {% for i in obj %}
-
-            <div class="input-group">
-                <input type="text" id="username" name="arid" value="{{ i.ARTISTID }}" required>
-                <label for="username">Artist id</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="modelname"  required value="{{i.modelname}}">
-                <label for="username">Model Name</label >
-            </div>
-            <div class="input-group">
-                <input type="text" id="username" name="type"  required value="{{i.type}}">
-                <label for="username">type</label>
-            </div>
-            <div class="input-group">
-                <img src="{{i.image.url}}" alt="image" height='100' width='100'>
-            </div>
-            
-            {% endfor %}
-
-        
-
-  
+        <h2>Models Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ARTISTID</th>
+                    <th>modelname</th>
+                    <th>type</th>
+                    <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in obj %}
+                <tr>
+                    <td>{{ i.ARTISTID }}</td>
+                    <td>{{ i.modelname }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>{{ i.image }}</td>
+               
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

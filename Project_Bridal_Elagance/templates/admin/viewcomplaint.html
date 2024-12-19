@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Complaint And Post Replay</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         * {
@@ -19,18 +19,19 @@
             align-items: center;
             height: 100vh;
             background-color: #e0e0e0;
-            background-image:url(img/brushes-with-particles-pink-powder.jpg) ;
+            background-image:url(img/brushes-with-particles-pink-powder.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         .login-container {
-            background-color: #080808cc;
-            padding: 50px 40px ;
+            background-color: rgba(145, 140, 140, 0.8);
+            padding: 50px 40px;
             border-radius: 10px;
             box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.723);
-            width: 400px;
+            width: 900px;
+            overflow: hidden;
         }
 
         .login-form h2 {
@@ -88,69 +89,91 @@
             right: 15px;
             transform: translateY(-50%);
             cursor: pointer;
-            color: #050505;
+            color: rgb(181, 98, 98);
             font-size: 22px;
         }
 
-        button {
+        #bu, #b {
             width: 100%;
             padding: 15px;
             font-size: 18px;
             background-color: transparent;
             border: 1px solid white;
             color: #fff;
-            
             border-radius: 5px;
             cursor: pointer;
             transition: 0.5s;
         }
 
-        button:hover {
-            background-color: #9a247f;
+        #bu:hover, #b:hover {
+            background-color: #2a790b8a;
             border: none;
         }
 
+        #b {
+            margin-top: 8px;
+            background-color: #950e1989;
+        }
 
-        .login-container {
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
 
-       
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        td a:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form">
-            <h2>View Complaint</h2>
+        <h2>Complaint Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>USERID</th>
+                    <th>complaint</th>
+                    <th>reply</th>
+                    <th>date</thd>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in obj  %}
+                <tr>
+                    <td>{{ i.USERID.name}}</td>
+                    <td>{{ i.complaint }}</td>
+                    <td>{{ i.reply}}</td>
+                    <td>{{ i.date}}</td>
 
-            <div class="input-group">
-                <input type="text" id="charset" name="complaint"  required>
-                <label for="username">Complaint</label>
-            </div>
-
-           
-            <button type="submit">submit</button>
-        </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
-    <script>
-        function togglePasswordVisibility() {
-            const passwordInput = document.getElementById('password');
-            const togglePassword = document.getElementById('togglePassword');
-
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-
-            togglePassword.textContent = type === 'password' ? 'visibility_off' : 'visibility';
-
-            // Auto-hide the password after 2 seconds
-            if (type === 'text') {
-                setTimeout(() => {
-                    passwordInput.setAttribute('type', 'password');
-                    togglePassword.textContent = 'visibility_off';
-                }, 2000);
-            }
-        }
-    </script>
 </body>
 </html>

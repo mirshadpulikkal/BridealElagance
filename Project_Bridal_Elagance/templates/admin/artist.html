@@ -19,18 +19,19 @@
             align-items: center;
             height: 100vh;
             background-color: #e0e0e0;
-            background-image:url(img/brushes-with-particles-pink-powder.jpg) ;
+            background-image:url(img/brushes-with-particles-pink-powder.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         .login-container {
-            background-color: #080808cc;
-            padding: 50px 40px ;
+            background-color: rgba(145, 140, 140, 0.8);
+            padding: 50px 40px;
             border-radius: 10px;
             box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.723);
-            width: 800px;
+            width: 900px;
+            overflow: hidden;
         }
 
         .login-form h2 {
@@ -88,83 +89,99 @@
             right: 15px;
             transform: translateY(-50%);
             cursor: pointer;
-            color: #050505;
+            color: rgb(181, 98, 98);
             font-size: 22px;
         }
 
-        #bu {
+        #bu, #b {
             width: 100%;
             padding: 15px;
             font-size: 18px;
             background-color: transparent;
             border: 1px solid white;
             color: #fff;
-            
             border-radius: 5px;
             cursor: pointer;
             transition: 0.5s;
         }
 
-        #bu:hover {
+        #bu:hover, #b:hover {
             background-color: #2a790b8a;
             border: none;
         }
+
         #b {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            background-color: transparent;
-            border: 1px solid white;
-            color: #fff;
             margin-top: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.5s;
-        }
-
-        #b:hover {
             background-color: #950e1989;
-            border: none;
         }
 
-
-        .login-container {
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
 
-       
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        td a:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
     <div class="login-container">
-       <table>
-        <tr>
-            <td>Username</td>
-            <td>Address </td>
-            <td>Age </td>
-            <td>Gender </td>
-            <td>Contact no </td>
-            <td>Experience </td>
-            <td>Verify</td>
-        </tr>
-        {% for i in a %}
-        <tr>
-            <td>{{i.name}}</td>
-            <td>{{i.address}}</td>
-            <td>{{i.age}}</td>
-            <td>{{i.gender}}</td>
-            <td>{{i.contactno}}</td>
-            <td>{{i.experience}}</td>
-            <td>
-                <a href="#">Accept</a>
-                <a href="#">Reject</a>
-            </td>
-        </tr>
-         {% endfor %}
-       </table>
-           
+        <h2>Artist Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Contact No</th>
+                    <th>Experience</th>
+                    <th>Verify</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in a %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.age }}</td>
+                    <td>{{ i.gender }}</td>
+                    <td>{{ i.contactno }}</td>
+                    <td>{{ i.experience }}</td>
+                    <td>
+                        <a href="Accept_artist/{{i.LOGIN.id}}">Accept</a>
+                        <a href="Reject_artist/{{i.LOGIN.id}}">Reject</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
-  
 </body>
 </html>

@@ -18,8 +18,8 @@ class ArtistTable(models.Model):
 class ModelTable(models.Model):
     ARTISTID= models.ForeignKey(ArtistTable, on_delete=models.CASCADE)
     modelname= models.CharField(max_length=50,null=True,blank=True)
-    type= models.CharField(max_length=100,null=True,blank=True) 
-    image= models.ImageField(null=True,blank=True)
+    type= models.CharField(max_length=100,null=True,blank=True)
+    image= models.FileField(null=True,blank=True)
 class UserTable(models.Model):
     LOGIN= models.ForeignKey(LoginTable, on_delete=models.CASCADE)
     name= models.CharField(max_length=100,null=True,blank=True)
@@ -29,16 +29,15 @@ class UserTable(models.Model):
     contactno= models.BigIntegerField(null=True,blank=True)
     experience= models.CharField(max_length=100,null=True,blank=True)    
 class bookingTable(models.Model):
-    USERID= models.ForeignKey(UserTable, on_delete=models.CASCADE)
-    ARTISTID= models.ForeignKey(ArtistTable, on_delete=models.CASCADE)
-    date= models.DateTimeField(null=True,blank=True)
+    USER= models.ForeignKey(UserTable, on_delete=models.CASCADE)
+    ARTIST= models.ForeignKey(ArtistTable, on_delete=models.CASCADE)
+    date= models.DateTimeField(auto_now_add=True,null=True,blank=True)
     status= models.CharField(max_length=100,null=True,blank=True)
 
 class paymentTable(models.Model):
      paymentmethod= models.CharField(max_length=100,null=True,blank=True)
      bookingid=models.ForeignKey(bookingTable,on_delete=models.CASCADE)
-     date= models.CharField(max_length=100,null=True,blank=True)
-     time= models.CharField(max_length=100,null=True,blank=True)
+     date= models.DateTimeField(null=True,blank=True)
 
 class complaintTable(models.Model):
      USERID= models.ForeignKey(UserTable, on_delete=models.CASCADE)
